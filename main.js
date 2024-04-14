@@ -6,6 +6,8 @@ const button = document.getElementById("btn");
 const label = document.getElementById("txt");
 const input = document.getElementById("input");
 const para = document.createElement("p");
+
+
 input.focus();
 label.textContent = randomWords[randomNumber];
 let labelValue = label.textContent;
@@ -26,10 +28,14 @@ function CompareText() {
     console.log("label text: " + labelValue);
     console.log("input tex: " + inputValue);
   if (labelValue === inputValue){
+    correct.style.display = "block";
+    incorrect.style.display = "none";
   para.textContent = "Correct!";
   input.value = "";
 } else {
-  para.textContent = "Incorrect"; 
+  incorrect.style.display = "block";
+  correct.style.display = "none";
+  para.textContent = "Incorrect";
   input.value = "";
 }
 randomNumber = Math.floor(Math.random() * randomWords.length - 1) + 1;
