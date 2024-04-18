@@ -6,42 +6,89 @@ const button = document.getElementById("btn");
 const label = document.getElementById("txt");
 const input = document.getElementById("input");
 const para = document.createElement("p");
+const scorePara = document.createElement("p");
+const audioCorrect = document.getElementById("correctSound");
+const audioIncorrect = document.getElementById("incorrectSound");
+let score = 0;
 
-
+scorePara.textContent = "score: " + score;
 input.focus();
+
+
+
+
 label.textContent = randomWords[randomNumber];
 let labelValue = label.textContent;
 let inputValue = input.value;
 
-console.log("label text: " + labelValue);
-console.log("input tex: " + inputValue);
+// console.log("label text: " + labelValue);
+// console.log("input tex: " + inputValue);
 
-button.addEventListener("click", CompareText);
-input.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    CompareText();
+// button.addEventListener("click", CompareText);
+// input.addEventListener('keypress', function (e) {
+//   if (e.key === 'Enter') {
+//     CompareText();
+//   }
+// });
+
+
+input.addEventListener('input', function(){
+  if (input.value.length === labelValue.length){
+    CompareText2();
   }
 });
 
-function CompareText() {
+function CompareText2() {
+  console.log("im here");
   inputValue = input.value;
-    console.log("label text: " + labelValue);
-    console.log("input tex: " + inputValue);
+    // console.log("label text: " + labelValue);
+    // console.log("input tex: " + inputValue);
   if (labelValue === inputValue){
+    audioCorrect.play();
+    score++
     correct.style.display = "block";
     incorrect.style.display = "none";
+    scorePara.textContent = "score: " + score;
   para.textContent = "Correct!";
   input.value = "";
+  randomNumber = Math.floor(Math.random() * randomWords.length - 1) + 1;
+console.log("random number: " + randomNumber);
+  label.textContent = randomWords[randomNumber];
+  labelValue = label.textContent
 } else {
+  audioIncorrect.play();
   incorrect.style.display = "block";
   correct.style.display = "none";
   para.textContent = "Incorrect";
-  input.value = "";
+  //input.value = "";
 }
-randomNumber = Math.floor(Math.random() * randomWords.length - 1) + 1;
-console.log("random number: " + randomNumber);
-  label.textContent = randomWords[randomNumber];
-  labelValue = label.textContent;
+;
+document.body.appendChild(para);
+document.body.appendChild(scorePara);
+}
+
+
+
+// function CompareText() {
+//   inputValue = input.value;
+//     console.log("label text: " + labelValue);
+//     console.log("input tex: " + inputValue);
+//   if (labelValue === inputValue){
+//     correct.style.display = "block";
+//     incorrect.style.display = "none";
+//   para.textContent = "Correct!";
+//   input.value = "";
+// } else {
+//   incorrect.style.display = "block";
+//   correct.style.display = "none";
+//   para.textContent = "Incorrect";
+//   input.value = "";
+// }
+// randomNumber = Math.floor(Math.random() * randomWords.length - 1) + 1;
+// console.log("random number: " + randomNumber);
+//   label.textContent = randomWords[randomNumber];
+//   labelValue = label.textContent;
     
-document.body.appendChild(para);}
+// document.body.appendChild(para);}
+
 });

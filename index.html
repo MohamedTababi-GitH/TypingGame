@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="container">
+        <h1></h1>
         <label id="txt">apple</label>
         
             <input id="input" placeholder="type here"/>
@@ -21,5 +22,13 @@
     </div>
     <i id="correct" style="font-size: 60px; color: green; display: none;" class="fas fa-check-square"></i>
     <i id="incorrect" style="font-size: 60px; color: red; display: none;" class="fas fa-times-circle"></i>
+    <audio id="correctSound">
+        <source src="correct-sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="incorrectSound">
+        <source src="incorrect-sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 </body>
 </html>
