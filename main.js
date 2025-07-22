@@ -21,16 +21,6 @@ label.textContent = randomWords[randomNumber];
 let labelValue = label.textContent;
 let inputValue = input.value;
 
-// console.log("label text: " + labelValue);
-// console.log("input tex: " + inputValue);
-
-// button.addEventListener("click", CompareText);
-// input.addEventListener('keypress', function (e) {
-//   if (e.key === 'Enter') {
-//     CompareText();
-//   }
-// });
-
 
 input.addEventListener('input', function(){
   if (input.value.length === labelValue.length){
@@ -41,8 +31,7 @@ input.addEventListener('input', function(){
 function CompareText2() {
   console.log("im here");
   inputValue = input.value;
-    // console.log("label text: " + labelValue);
-    // console.log("input tex: " + inputValue);
+
   if (labelValue === inputValue){
     audioCorrect.play();
     score++
@@ -60,35 +49,11 @@ console.log("random number: " + randomNumber);
   incorrect.style.display = "block";
   correct.style.display = "none";
   para.textContent = "Incorrect";
-  //input.value = "";
 }
 ;
 document.body.appendChild(para);
 document.body.appendChild(scorePara);
 }
 
-
-
-// function CompareText() {
-//   inputValue = input.value;
-//     console.log("label text: " + labelValue);
-//     console.log("input tex: " + inputValue);
-//   if (labelValue === inputValue){
-//     correct.style.display = "block";
-//     incorrect.style.display = "none";
-//   para.textContent = "Correct!";
-//   input.value = "";
-// } else {
-//   incorrect.style.display = "block";
-//   correct.style.display = "none";
-//   para.textContent = "Incorrect";
-//   input.value = "";
-// }
-// randomNumber = Math.floor(Math.random() * randomWords.length - 1) + 1;
-// console.log("random number: " + randomNumber);
-//   label.textContent = randomWords[randomNumber];
-//   labelValue = label.textContent;
-    
-// document.body.appendChild(para);}
 
 });
